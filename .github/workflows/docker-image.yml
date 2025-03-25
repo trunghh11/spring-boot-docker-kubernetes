@@ -17,4 +17,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag trung2910/spring-boot-docker-kubernetes:latest
     - name: Push the Docker image
-      run: docker push trung2910/spring-boot-docker-kubernetes:latest
+      run:
+        docker login -u trung2910 -p ${{ secrets.DOCKER_HUB_TOKEN }}
+        docker push trung2910/spring-boot-docker-kubernetes:latest
